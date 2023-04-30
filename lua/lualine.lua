@@ -502,7 +502,6 @@ local function set_statusline(hide)
       modules.nvim_opts.set('statusline', '%#Normal#', { global = true })
     end
     if config.options.globalstatus then
-      modules.nvim_opts.set('laststatus', 3, { global = true })
       vim.loop.timer_start(
         timers.stl_timer,
         0,
@@ -518,7 +517,6 @@ local function set_statusline(hide)
         'lualine_stl_refresh'
       )
     else
-      modules.nvim_opts.set('laststatus', 2, { global = true })
       vim.loop.timer_start(
         timers.stl_timer,
         0,
@@ -540,7 +538,6 @@ local function set_statusline(hide)
     for _, win in ipairs(vim.api.nvim_list_wins()) do
       modules.nvim_opts.restore('statusline', { window = win })
     end
-    modules.nvim_opts.restore('laststatus', { global = true })
   end
 end
 
